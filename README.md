@@ -21,33 +21,46 @@
 
 ## 🚀 Быстрый старт
 
-### 1. Клонирование репозитория
+### 🧪 Тестирование (рекомендуется начать с этого)
+
+**GitHub Codespaces (самый простой способ):**
+1. Откройте репозиторий в GitHub Codespaces
+2. Запустите тестовый сервер:
+   ```bash
+   cd test-webhook
+   npm install
+   npm start
+   ```
+3. Получите публичный URL из Codespaces
+4. Настройте webhook в Wazzup на полученный URL
+
+**Локальное тестирование:**
 ```bash
-git clone https://github.com/YOUR_USERNAME/podio-wazzup-integration.git
-cd podio-wazzup-integration
+git clone https://github.com/Anastasia462208/podio-wazzup-integration.git
+cd podio-wazzup-integration/test-webhook
+npm install
+npm start
 ```
 
-### 2. Автоматическая установка
+### 🌐 Production установка
+
+**На собственном сервере:**
 ```bash
-chmod +x install.sh
-./install.sh
+# Подключение к серверу
+ssh root@your-server.com
+
+# Автоматическая установка
+curl -sSL https://raw.githubusercontent.com/Anastasia462208/podio-wazzup-integration/main/install.sh | bash
+
+# Проверка статуса
+supervisorctl status podio-wazzup-integration
 ```
 
-### 3. Настройка конфигурации
-```bash
-cp config.example.py config.py
-nano config.py  # Укажите ваши API ключи
-```
-
-### 4. Получение App ID из Podio
-```bash
-python3 get_podio_apps.py
-```
-
-### 5. Запуск интеграции
-```bash
-python3 main.py
-```
+**Railway/Heroku deployment:**
+1. Подключите GitHub репозиторий
+2. Укажите папку `test-webhook` как root directory
+3. Установите переменную `PORT`
+4. Deploy!
 
 ## ⚙️ Конфигурация
 
